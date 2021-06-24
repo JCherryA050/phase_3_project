@@ -77,12 +77,12 @@ The target class in the data set is ```status_group``` and consists of three cla
 - There are some features that will have no significance in determining the classification.
 
 ### Missing Data:
-```funder``` -  column gives the funding organization for the construction of the well. It is assumed that the well points that do not have an explicit funding source were not funded by a major organization and will be labeled ```other```.
-```installer``` -  feature lists the organization responsible for constructing the water well. Like the 'funder' column, it is assumed that the water points with no explicit installer were not constructed by a major organization and will be labelled as ```other```.
-- The ```subvillage``` feature gives the sub community in which the water well was installed. It is assumed that the water points with no explicit subvillage were installed outside of more populated areas and will be filled with ```none```.
-- The ```public_meeting``` feature describes whether or not the water point was installed in a public meeting area. It is assumed that the water points with no explicit label are water points not installed in public areas and will be filled with ```False```.
-- The ```scheme_management``` feature labels the organization responsible for the operation of the water point. It is assumed that the water points with no explicit operation management are not managed by a major company and will be filled with ```None```.
-- The ```scheme_name``` feature gives the name of the company responsible for the operation of the water point. One of the classes in the column is ```None``` and it is assumed that the water points with no explicit operation name are also ```None```.
+- ```funder``` -  column gives the funding organization for the construction of the well. It is assumed that the well points that do not have an explicit funding source were not funded by a major organization and will be labeled ```other```.
+- ```installer``` -  feature lists the organization responsible for constructing the water well. Like the 'funder' column, it is assumed that the water points with no explicit installer were not constructed by a major organization and will be labelled as ```other```.
+- ```subvillage``` - feature gives the sub community in which the water well was installed. It is assumed that the water points with no explicit subvillage were installed outside of more populated areas and will be filled with ```none```.
+- ```public_meeting``` - feature describes whether or not the water point was installed in a public meeting area. It is assumed that the water points with no explicit label are water points not installed in public areas and will be filled with ```False```.
+- ```scheme_management``` - feature labels the organization responsible for the operation of the water point. It is assumed that the water points with no explicit operation management are not managed by a major company and will be filled with ```None```.
+- ```scheme_name``` - feature gives the name of the company responsible for the operation of the water point. One of the classes in the column is ```None``` and it is assumed that the water points with no explicit operation name are also ```None```.
 
 #### Dealing with outliers
 
