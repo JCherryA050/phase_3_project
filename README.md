@@ -6,13 +6,14 @@
 
 ## Repo Table of Contents
 
-- [Notebooks](Notebooks)
-    - [Working Notebooks]() Notebooks with raw code
-    - [Final Notebook]() Final Notebook with full technical description of the analysis
+- [Notebooks](Notebooks/)
+    - [Working Notebooks](Notebooks/working_notebooks/) Notebooks with raw code
+    - [Final Notebook](Notebooks/final_notebook/) Final Notebook with full technical description of the analysis
 - [src](src/) Python Files with functions used in the Final Notebook
 - [Images](images/) List of images used in the final slide deck and summary below
 - [Data](data/) Contains the data used in the analysis
-
+- [GeoJson Files](geojson_files/)Map Files
+- [Presentation Slides](slidedeck/)
 
 ## Overview
 
