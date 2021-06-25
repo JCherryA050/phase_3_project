@@ -1,8 +1,18 @@
 ![](images/pumping_new.jpg)
 
-# Title of the Analysis
+# Water we Doing!?
 
 **Authors:** Victor Chen, Aaron Cherry 
+
+## Repo Table of Contents
+
+- [Notebooks]()
+    - [Working Notebooks]() Notebooks with raw code
+    - [Final Notebook]() Final Notebook with full technical description of the analysis
+- [src]() Python Files with functions used in the Final Notebook
+- [Images]() List of images used in the final slide deck and summary below
+- [Data]() Contains the data used in the analysis
+
 
 ## Overview
 
@@ -16,50 +26,7 @@ A major challange of the Tanzanian Ministry of Water is determining when, where 
 
 The data used for this analysis is taken from the Taarifa waterpoints dashboard that functions to aggregate weter well data collected from the Tanzania Ministry of Water. A link to the data and explanation of the features found in the data can be found [here](https://www.drivendata.org/competitions/7/pump-it-up-data-mining-the-water-table/page/23/). A link to the Taarifa waterpoints dashboard website can be found [here](https://taarifa.org/). The link to the website for the Tanzania Ministry of Water can be found [here](https://www.maji.go.tz/).
 
-The following table is a description of the features in the data along with descriptions of the features.
-
-
-|**Feature**|**Description**|
-|:----------|:------------|
-|```amount_tsh``` | Total static head (amount water available to waterpoint)|
-|```date_recorded``` | The date the row was entered|
-|```funder``` | Who funded the well|
-|```gps_height``` | Altitude of the well|
-|```installer``` | Organization that installed the well|
-|```longitude``` | GPS coordinate|
-|```latitude``` | GPS coordinate|
-|```wpt_name``` | Name of the waterpoint if there is one|
-|```num_private``` | Unknown|
-|```basin``` | Geographic water basin|
-|```subvillage``` | Geographic location|
-|```region``` | Geographic location|
-|```region_code``` | Geographic location (coded)|
-|```district_code``` | Geographic location (coded)|
-|```lga``` | Geographic location|
-|```ward``` | Geographic location|
-|```population``` | Population around the well|
-|```public_meeting``` | True/False|
-|```recorded_by``` | Group entering this row of data|
-|```scheme_management``` | Who operates the waterpoint|
-|```scheme_name``` | Who operates the waterpoint|
-|```permit``` | If the waterpoint is permitted|
-|```construction_year``` | Year the waterpoint was constructed|
-|```extraction_type``` | The kind of extraction the waterpoint uses|
-|```extraction_type_group``` | The kind of extraction the waterpoint uses|
-|```extraction_type_class``` | The kind of extraction the waterpoint uses|
-|```management``` | How the waterpoint is managed|
-|```management_group``` | How the waterpoint is managed|
-|```payment``` | What the water costs|
-|```payment_type``` | What the water costs|
-|```water_quality``` | The quality of the water|
-|```quality_group``` | The quality of the water|
-|```quantity``` | The quantity of water|
-|```quantity_group``` | The quantity of water|
-|```source``` | The source of the water|
-|```source_type``` | The source of the water|
-|```source_class``` | The source of the water|
-|```waterpoint_type``` | The kind of waterpoint|
-|```waterpoint_type_group``` | The kind of waterpoint|
+A complete list and description of the features used can be found in the [final notebook]().
 
 The target class in the data set is ```status_group``` and consists of three classes. The classes and their descriptions can be fouind in the table below:
 
@@ -69,29 +36,66 @@ The target class in the data set is ```status_group``` and consists of three cla
 |```functional needs repair``` | the waterpoint is operational, but needs repairs|
 |```non functional``` | the waterpoint is not operational|
 
-## Data Preparation
-
-- There are some features that have missing data. The first order of business will be to fill or drop these NaN values.
-- There are no duplicate data points in the dataset
-- There are some features that have data types that don't match with the feature description. These will be converted to the appropriate data type.
-- There are some features that will have no significance in determining the classification.
-
-### Missing Data:
-- ```funder``` -  column gives the funding organization for the construction of the well. It is assumed that the well points that do not have an explicit funding source were not funded by a major organization and will be labeled ```other```.
-- ```installer``` -  feature lists the organization responsible for constructing the water well. Like the 'funder' column, it is assumed that the water points with no explicit installer were not constructed by a major organization and will be labelled as ```other```.
-- ```subvillage``` - feature gives the sub community in which the water well was installed. It is assumed that the water points with no explicit subvillage were installed outside of more populated areas and will be filled with ```none```.
-- ```public_meeting``` - feature describes whether or not the water point was installed in a public meeting area. It is assumed that the water points with no explicit label are water points not installed in public areas and will be filled with ```False```.
-- ```scheme_management``` - feature labels the organization responsible for the operation of the water point. It is assumed that the water points with no explicit operation management are not managed by a major company and will be filled with ```None```.
-- ```scheme_name``` - feature gives the name of the company responsible for the operation of the water point. One of the classes in the column is ```None``` and it is assumed that the water points with no explicit operation name are also ```None```.
-
-#### Dealing with outliers
-
-## Feature Engineering
-
 ## Exploratory Data Analysis
+
+![](tanzania_map.png)
+
+The Following Key Features were found to have a large impact on the prediction of Water point condition:
+
+- **Water Quality** The graph below shows the water quality as it relates to the water point condition. There seems to be a relationship btw the function of the water point and the water wuality as the ```soft``` quality has a much larger ratio of functional and non functional water points than ```salty```.
+
+![](water_quality.png)
+
+- **Water Quantity** There does seem to be some correlation btw the quantity of the water and the fonction of the water point. This is shown by the larger ratio of functioning water points to non functioning water points when the point is providing ```enough``` water.
+
+![](water_quantity.png)
+
+- **Water Pump Type** There does seem to be some correlation btw the water point type and the function as the ratio of functional to non functional for ```standpipe``` is much larger than the ratio for ```hand pump```. As the standpipe configuration might be less complex, there could be less failure modes for the ```standpipe``` configuration.
+
+![](wp_type.png)
+
+- **Location of the Pump** The map above does show a few regions such as the area around the capitol and the lower east region that have a higher percentage of non functional pumps. These locations probably receive a large volume of people and are prone to wear and tear.
+
+
 
 ## Modeling
 
+All models incorporate One Hot Encoding teh categorical data dropping the first column, Standard Scaling for all of the continuous variables, and SMOTE with the ```sampling_strategy``` set to 'minority' to properly oversample the minority class of ```functional needs repair```.
+Among the models tested (see the [final notebook]() for examples) the RandomForest model performed the best interms of accuracy, however did not perform as well in terms of the macro precision (KNN did better). We went with the Random Forest as our baseline model as it is simpler to emplement and easier to optimize. Future work might include an ensemble including Random Forest and KNN.
+
+The accuracy and precision scores for the baseline, and optimal model can be found in the table below. The optimized model performed slightly better and enjoyed a 1% increase in macro precision and accuracy relative to the base model.
+
+|Model| Precision| Accuracy|
+|:-----:|:-------:|:--------:|
+|Baseline| 0.68| 0.78|
+|Optimized| 0.69| 0.79|
+
 ## Conclusions
 
+**1. EDA** From the preliminary exploritory data analysis we found that the conition of the water well depends heavily on the type of water well, the amount of water being pulled from the point, the quality of water that it serves and the location/surrounding population of the water point
+
+**2. Model** We found that the optimal model to give the best predictions was a Random Forest model which gave a 79% accuracy rate and a 69% precision rate meaning that this model will accurately predict the water point condition 79 times out of 100 and the model was optimized to limit the amouint of false positives or the possibility of predicting a well as functional when in reality it is not.
+
+**3. Best Features** The features importances shows that the most importtant features in modeling and predicting the condition of a water point are the geographic location, the water point type, and the water quility at the point. This aligns with the exploratory data analysis done in the preceding section.
+
 ## Next Steps
+
+Further analysis can be done to better predict the condition of a water point. The following are some suggestions for future iterations:
+
+**1. Better Data** A large portion of the data were missing location, population, water yeild, and construction year. As is is likely that the condition of the pump would heavily rely on the age, amount of usage, and location of the water point, the lack in data should be addressed before more iterations can be made.
+
+**2. New Data** Information such as the date of last repair, the failure mode if non functional, average climaate information, and frequency of maintenance could be very influential in predicting the condition of the water point and could lead to a time sequenced prediction method.
+
+**3. Time Sequence** It would be most interesting and perhaps most important to be able to pedict when a water point would need maintenance and the frequency of mainteneance required for a water point. Future iterations should be focussed on these kinds of predictions as they will be influential in defining maintenance routines.
+
+## Authors
+
+Aaron Cherry
+- Email: cherrya050@gmail@.com
+- Github: https://github.com/JCherryA050
+- Linkedin: https://www.linkedin.com/in/aaron-cherry-8aa728124/
+
+Victor Chen
+- Email: victor.i.chen.98@gmail.com
+- Github: https://github.com/vchen-98
+- Linkedin: https://www.linkedin.com/in/victorchen98/
