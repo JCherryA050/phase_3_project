@@ -6,7 +6,7 @@
 
 ## Repo Table of Contents
 
-- [Notebooks]()
+- [Notebooks](data/)
     - [Working Notebooks]() Notebooks with raw code
     - [Final Notebook]() Final Notebook with full technical description of the analysis
 - [src]() Python Files with functions used in the Final Notebook
