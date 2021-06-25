@@ -101,6 +101,7 @@ Victor Chen
 - Linkedin: https://www.linkedin.com/in/victorchen98/
 
 ## Repo Structure
+```
 ├── Notebooks
 │   ├── GeoPandas Notebook.ipynb
 │   ├── Model Notebook.ipynb
@@ -132,3 +133,4 @@ Victor Chen
 ├── README.md
 ├── flatiron_phase_2_template_presentation.pdf
 └── technical_notebook.ipynb
+```
