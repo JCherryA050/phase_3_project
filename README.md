@@ -1,6 +1,6 @@
 ![](images/pumping_new.jpg)
 
-# Water we Doing!?
+# Tanzanian Water Point Analysis
 
 **Authors:** Victor Chen, Aaron Cherry 
 
