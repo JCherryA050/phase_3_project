@@ -6,12 +6,12 @@
 
 ## Repo Table of Contents
 
-- [Notebooks](data/)
+- [Notebooks](working_notebooks)
     - [Working Notebooks]() Notebooks with raw code
     - [Final Notebook]() Final Notebook with full technical description of the analysis
-- [src]() Python Files with functions used in the Final Notebook
-- [Images]() List of images used in the final slide deck and summary below
-- [Data]() Contains the data used in the analysis
+- [src](src/) Python Files with functions used in the Final Notebook
+- [Images](images/) List of images used in the final slide deck and summary below
+- [Data](data/) Contains the data used in the analysis
 
 
 ## Overview
@@ -38,21 +38,21 @@ The target class in the data set is ```status_group``` and consists of three cla
 
 ## Exploratory Data Analysis
 
-![](tanzania_map.png)
+![](images/tanzania_map.png)
 
 The Following Key Features were found to have a large impact on the prediction of Water point condition:
 
 - **Water Quality** The graph below shows the water quality as it relates to the water point condition. There seems to be a relationship btw the function of the water point and the water wuality as the ```soft``` quality has a much larger ratio of functional and non functional water points than ```salty```.
 
-![](water_quality.png)
+![](images/water_quality.png)
 
 - **Water Quantity** There does seem to be some correlation btw the quantity of the water and the fonction of the water point. This is shown by the larger ratio of functioning water points to non functioning water points when the point is providing ```enough``` water.
 
-![](water_quantity.png)
+![](images/water_quantity.png)
 
 - **Water Pump Type** There does seem to be some correlation btw the water point type and the function as the ratio of functional to non functional for ```standpipe``` is much larger than the ratio for ```hand pump```. As the standpipe configuration might be less complex, there could be less failure modes for the ```standpipe``` configuration.
 
-![](wp_type.png)
+![](images/wp_type.png)
 
 - **Location of the Pump** The map above does show a few regions such as the area around the capitol and the lower east region that have a higher percentage of non functional pumps. These locations probably receive a large volume of people and are prone to wear and tear.
 
