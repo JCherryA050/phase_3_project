@@ -12,7 +12,7 @@
 - [src](src/) Python Files with functions used in the Final Notebook
 - [Images](images/) List of images used in the final slide deck and summary below
 - [Data](data/) Contains the data used in the analysis
-- [GeoJson Files](geojson_files/)Map Files
+- [GeoJson Files](geojson_files/) Map Files
 - [Presentation Slides](slidedeck/)
 
 ## Overview
