@@ -99,3 +99,36 @@ Victor Chen
 - Email: victor.i.chen.98@gmail.com
 - Github: https://github.com/vchen-98
 - Linkedin: https://www.linkedin.com/in/victorchen98/
+
+## Repo Structure
+├── Notebooks
+│   ├── GeoPandas Notebook.ipynb
+│   ├── Model Notebook.ipynb
+│   └── student.ipynb
+|
+├── data
+│   ├── School_Districts_in_King_County___schdst_area.cpg
+│   ├── School_Districts_in_King_County___schdst_area.dbf
+│   ├── School_Districts_in_King_County___schdst_area.prj
+│   ├── School_Districts_in_King_County___schdst_area.shp
+│   ├── School_Districts_in_King_County___schdst_area.shx
+│   ├── School_Districts_in_King_County___schdst_area.xml
+│   ├── column_names.md
+│   ├── kc_house_data.csv
+│   ├── kc_house_data_clean
+│   └── kc_house_data_clean.csv
+|
+├── images
+│   ├── fsm_corr.png
+│   ├── fsm_resid.png
+│   ├── log_transform_final_model.png
+│   ├── modeling_process.PNG
+│   └── pre_transform_final_model.png
+|
+├── .canvas
+├── .gitignore
+├── CONTRIBUTING.md
+├── LICENSE.md
+├── README.md
+├── flatiron_phase_2_template_presentation.pdf
+└── technical_notebook.ipynb
