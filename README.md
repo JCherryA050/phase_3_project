@@ -38,7 +38,7 @@ The target class in the data set is ```status_group``` and consists of three cla
 
 ## Exploratory Data Analysis
 
-![](images/tanzania_map.png)
+![](images/well_function_location.png)
 
 The Following Key Features were found to have a large impact on the prediction of Water point condition:
 
