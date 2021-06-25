@@ -43,48 +43,9 @@ class EdaPlots():
         
         # Dropping unnecessary columns
         self.df_.drop(['date_recorded','construction_year','age_at_recording','id'],axis=1,inplace=True)
+        
+        # Convert the boolian columsn to string 
+        self.df_['permit'] = self.df_['permit'].astype(str)
+        self.df_['public_meeting'] = self.df_['public_meeting'].astype(str)
+
         pass
-        
-        
-    def create_barplots(self):
-            
-            functional_cats = self.df_[(self.df_['status_group'] == 'functional') & (self.df_['water_quality'] != 'other')].select_dtypes('object')
-            not_functional_cats = self.df_[(self.df_['status_group'] == 'non functional') & (self.df_['water_quality'] != 'other')].select_dtypes('object')
-            functional_needs_repair_cats = self.df_[(self.df_['status_group'] == 'functional needs repair') & 
-                                              (self.df_['water_quality'] != 'other')].select_dtypes('object')
-            
-            for col in functional_cats.columns:
-                
-                # Instantiate the bar plots for EDA
-                fig,ax = plt.subplots(figsize=(15,8));
-                width = 0.3
-                
-                
-                # TAKE COLUMN THAT ISN"T THE COLUMN IN QUESTION
-                n = len(functional_cats.groupby(col).count()['status_group'].index)
-                r = np.arange(n)
-                
-                # MAKE SURE THAT ALL X,Y PAIRS HAS EQUAL AMOUNT OF LABELS
-                x_func = functional_cats.groupby(col).count()['status_group'].index
-                y_func = functional_cats.groupby(col).count()['status_group'].values
-                x_func_rep = functional_needs_repair_cats.groupby(col).count()['status_group'].index
-                y_func_rep = functional_needs_repair_cats.groupby(col).count()['status_group'].values
-                x_not_func = not_functional_cats.groupby('water_quality').count()['status_group'].index
-                y_not_func = not_functional_cats.groupby('water_quality').count()['status_group'].values
-                
-                ax.bar(r,y_func,width=width,align='edge')
-                ax.bar(r-width,y_func_rep,width=width,align='edge')
-                ax.bar(r+width,y_not_func,width=width,align='edge')
-                plt.xticks(r + width/2,list(functional_cats.groupby(col).count()['status_group'].index))
-                ax.set_title('Water Quality vs. Water Point Function')
-                ax.set_xlabel('Water Quality')
-                ax.set_ylabel('Number of Water Points')
-                ax.legend(['functional','non functional','functional needs repair'])
-                plt.tight_layout()
-                
-                fig.savefig('images/{}.png'.format(col));
-                self.bar_plots_[col] = (fig,ax)
-                
-                
-                
-            pass
