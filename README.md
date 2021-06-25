@@ -104,34 +104,49 @@ Victor Chen
 ## Repo Structure
 ```
 ├── Notebooks
-│   ├── GeoPandas Notebook.ipynb
-│   ├── Model Notebook.ipynb
+│   ├── final_notebook.ipynb
+│   |   └── final_notebook.ipynb
 │   └── student.ipynb
+│       ├── notebook_template.ipynb
+│       └── vc_technical.ipynb
 |
 ├── data
-│   ├── School_Districts_in_King_County___schdst_area.cpg
-│   ├── School_Districts_in_King_County___schdst_area.dbf
-│   ├── School_Districts_in_King_County___schdst_area.prj
-│   ├── School_Districts_in_King_County___schdst_area.shp
-│   ├── School_Districts_in_King_County___schdst_area.shx
-│   ├── School_Districts_in_King_County___schdst_area.xml
-│   ├── column_names.md
-│   ├── kc_house_data.csv
-│   ├── kc_house_data_clean
-│   └── kc_house_data_clean.csv
+│   ├── water_well_test.csv
+│   ├── water_well_training_labels.csv
+│   └── water_well_training_values.csv
+|
+├── geojson_files
+│   ├── TZA_adm1_mkoaTZ.geojson
+│   ├── gadm36_TZA.gpkg
+│   └── license.txt
 |
 ├── images
-│   ├── fsm_corr.png
-│   ├── fsm_resid.png
-│   ├── log_transform_final_model.png
-│   ├── modeling_process.PNG
-│   └── pre_transform_final_model.png
+│   ├── Coat_of_arms_of_Tanzania.svg.png
+│   ├── altitude.png
+│   ├── extraction_type.png
+│   ├── feature_importance.png
+│   ├── hand-pump.jpg
+│   ├── population.png
+│   ├── pumping.jpg
+│   ├── pumping_new.jpg
+│   ├── satellite_map.PNG
+│   ├── standpipe.jfif
+│   ├── status_group.png
+│   ├── taariflogo.png
+│   ├── tanzania_map.png
+│   ├── water_amount.png
+│   ├── water_quality.png
+│   ├── water_quantity.png
+│   ├── well_function_location.png
+│   ├── well_type.png
+│   └── wp_type.png
 |
-├── .canvas
+├── slidedeck
+│   └── final_presentation_phase3.pdf
+|
+├── src
+│   └── eda.py
+|
 ├── .gitignore
-├── CONTRIBUTING.md
-├── LICENSE.md
-├── README.md
-├── flatiron_phase_2_template_presentation.pdf
-└── technical_notebook.ipynb
+└── README.md
 ```
