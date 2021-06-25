@@ -9,7 +9,7 @@ class EdaPlots():
         self.geo_plots_ = {}
         pass
     def clean (self):
-                
+        
         # Fill NaN values
         self.df_['funder'].fillna(value='other',inplace =True)
         self.df_['installer'].fillna(value='other',inplace=True)
