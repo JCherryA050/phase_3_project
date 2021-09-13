@@ -21,7 +21,7 @@ With this analysis, we aim to predict the condition of waterwells in Tanzania ba
 
 ## Business Problem
 
-A major challange of the Tanzanian Ministry of Water is determining when, where and how often a water well in Tanzania would need repairs. Implementation of models to predict the condition of a water well would greatly enhance maintenance operations, provide crucial updates associated with the conditions of the water wells and ensure that clean water sources can be provided to the communities in Tanzania. Through this analysis, we aim to provide prediction models based on the information collected to determine water well conditions to aid the Tanzanian Ministry of Water.
+A major challenge of the Tanzanian Ministry of Water is determining when, where and how often a water well in Tanzania needs repairs. The implementation of models to predict the condition of a water well would greatly enhance maintenance operations, provide crucial updates associated with the conditions of the water wells and ensure that clean water sources can be provided to the communities in Tanzania. Through this analysis, we aim to provide prediction models based on the information collected to determine water well conditions to aid the Tanzanian Ministry of Water.
 
 ## Data Understanding
 
@@ -43,26 +43,26 @@ The target class in the data set is ```status_group``` and consists of three cla
 
 The Following Key Features were found to have a large impact on the prediction of Water point condition:
 
-- **Water Quality** The graph below shows the water quality as it relates to the water point condition. There seems to be a relationship btw the function of the water point and the water wuality as the ```soft``` quality has a much larger ratio of functional and non functional water points than ```salty```.
+- **Water Quality** The graph below shows the water quality as it relates to the water point condition. There seems to be a relationship between the function of the water point and the water quality as the ```soft``` quality has a much larger ratio of functional and non functional water points than ```salty```.
 
 ![](images/water_quality.png)
 
-- **Water Quantity** There does seem to be some correlation btw the quantity of the water and the fonction of the water point. This is shown by the larger ratio of functioning water points to non functioning water points when the point is providing ```enough``` water.
+- **Water Quantity** There does seem to be some correlation between the quantity of the water and the function of the water point. This is shown by the larger ratio of functioning water points to non functioning water points when the point is providing ```enough``` water.
 
 ![](images/water_quantity.png)
 
-- **Water Pump Type** There does seem to be some correlation btw the water point type and the function as the ratio of functional to non functional for ```standpipe``` is much larger than the ratio for ```hand pump```. As the standpipe configuration might be less complex, there could be less failure modes for the ```standpipe``` configuration.
+- **Water Pump Type** There does seem to be some correlation between the water point type and the function as the ratio of functional to non functional for ```standpipe``` is much larger than the ratio for ```hand pump```. As the standpipe configuration might be less complex, there could be less failure modes for the ```standpipe``` configuration.
 
 ![](images/wp_type.png)
 
-- **Location of the Pump** The map above does show a few regions such as the area around the capitol and the lower east region that have a higher percentage of non functional pumps. These locations probably receive a large volume of people and are prone to wear and tear.
+- **Location of the Pump** The map above does show a few regions such as the area around the capitol and the lower east region that have a higher percentage of non-functional pumps. These locations probably receive a large volume of people and are prone to wear and tear.
 
 
 
 ## Modeling
 
-All models incorporate One Hot Encoding teh categorical data dropping the first column, Standard Scaling for all of the continuous variables, and SMOTE with the ```sampling_strategy``` set to 'minority' to properly oversample the minority class of ```functional needs repair```.
-Among the models tested (see the [final notebook]() for examples) the RandomForest model performed the best interms of accuracy, however did not perform as well in terms of the macro precision (KNN did better). We went with the Random Forest as our baseline model as it is simpler to emplement and easier to optimize. Future work might include an ensemble including Random Forest and KNN.
+All models incorporate One Hot Encoding of the categorical data, dropping the first column, Standard Scaling for all of the continuous variables, and SMOTE with the ```sampling_strategy``` set to 'minority' to properly oversample the minority class of ```functional needs repair```.
+Among the models tested (see the [final notebook]() for examples) the Random Forest model performed the best in terms of accuracy, however did not perform as well in terms of the macro precision (KNN did better). We went with the Random Forest as our baseline model as it is simpler to emplement and easier to optimize. Future work might include an ensemble including Random Forest and KNN.
 
 The accuracy and precision scores for the baseline, and optimal model can be found in the table below. The optimized model performed slightly better and enjoyed a 1% increase in macro precision and accuracy relative to the base model.
 
@@ -73,21 +73,21 @@ The accuracy and precision scores for the baseline, and optimal model can be fou
 
 ## Conclusions
 
-**1. EDA** From the preliminary exploritory data analysis we found that the conition of the water well depends heavily on the type of water well, the amount of water being pulled from the point, the quality of water that it serves and the location/surrounding population of the water point
+**1. EDA** From the preliminary exploratory data analysis we found that the conition of the water well depends heavily on the type of water well, the amount of water being pulled from the point, the quality of water that it serves and the location/surrounding population of the water point
 
 **2. Model** We found that the optimal model to give the best predictions was a Random Forest model which gave a 79% accuracy rate and a 69% precision rate meaning that this model will accurately predict the water point condition 79 times out of 100 and the model was optimized to limit the amouint of false positives or the possibility of predicting a well as functional when in reality it is not.
 
-**3. Best Features** The features importances shows that the most importtant features in modeling and predicting the condition of a water point are the geographic location, the water point type, and the water quility at the point. This aligns with the exploratory data analysis done in the preceding section.
+**3. Best Features** The features importances shows that the most important features in modeling and predicting the condition of a water point are the geographic location, the water point type, and the water quality at the point. This aligns with the exploratory data analysis done in the preceding section.
 
 ## Next Steps
 
 Further analysis can be done to better predict the condition of a water point. The following are some suggestions for future iterations:
 
-**1. Better Data** A large portion of the data were missing location, population, water yeild, and construction year. As is is likely that the condition of the pump would heavily rely on the age, amount of usage, and location of the water point, the lack in data should be addressed before more iterations can be made.
+**1. Better Data** A large portion of the data were missing location, population, water yield, and construction year. As is is likely that the condition of the pump would heavily rely on the age, amount of usage, and location of the water point, the lack in data should be addressed before more iterations can be made.
 
-**2. New Data** Information such as the date of last repair, the failure mode if non functional, average climaate information, and frequency of maintenance could be very influential in predicting the condition of the water point and could lead to a time sequenced prediction method.
+**2. New Data** Information such as the date of last repair, the failure mode if non functional, average climate information, and frequency of maintenance could be very influential in predicting the condition of the water point and could lead to a time sequenced prediction method.
 
-**3. Time Sequence** It would be most interesting and perhaps most important to be able to pedict when a water point would need maintenance and the frequency of mainteneance required for a water point. Future iterations should be focussed on these kinds of predictions as they will be influential in defining maintenance routines.
+**3. Time Sequence** It would be most interesting and perhaps most important to be able to pedict when a water point would need maintenance and the frequency of maintenance required for a water point. Future iterations should be focused on these kinds of predictions as they will be influential in defining maintenance routines.
 
 ## Authors
 
